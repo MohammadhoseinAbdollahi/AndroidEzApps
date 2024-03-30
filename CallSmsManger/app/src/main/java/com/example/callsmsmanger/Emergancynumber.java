@@ -1,6 +1,10 @@
 package com.example.callsmsmanger;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioGroup;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +24,49 @@ public class Emergancynumber extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        RadioGroup emerga = findViewById(R.id.emrg);
+        emerga.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == R.id.police) {
+                Public.emrgnumb = "112";
+            }
+            if (checkedId == R.id.ambulance) {
+                Public.emrgnumb = "118";
+            }
+            if (checkedId == R.id.firebrigade) {
+                Public.emrgnumb = "115";
+            }
+            if(checkedId == R.id.emerg) {
+                Public.emrgnumb = "112";
+            }
+        });
+
+        Button select = findViewById(R.id.select);
+        select. setOnClickListener(v -> {
+            Intent intent = new Intent(Emergancynumber.this, Makeintcall.class);
+            startActivity(intent);
+        });
+        Button backbutton = findViewById(R.id.back);
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Public.back_flag == 0) {
+                    Intent intent = new Intent(Emergancynumber.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                if(Public.back_flag == 1) {
+                    Intent intent = new Intent(Emergancynumber.this, Call.class);
+                    startActivity(intent);
+                }
+                if(Public.back_flag == 2) {
+                    Intent intent = new Intent(Emergancynumber.this, Sms.class);
+                    startActivity(intent);
+                }
+                if(Public.back_flag == 3) {
+                    Intent intent = new Intent(Emergancynumber.this, Makeintcall.class);
+                    startActivity(intent);
+                }
+            }
+        });
+        
     }
 }

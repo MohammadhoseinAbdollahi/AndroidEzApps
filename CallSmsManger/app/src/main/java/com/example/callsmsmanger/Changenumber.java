@@ -40,6 +40,10 @@ public class Changenumber extends AppCompatActivity {
                     Intent intent = new Intent(Changenumber.this, Sms.class);
                     startActivity(intent);
                 }
+                if(Public.back_flag == 3) {
+                    Intent intent = new Intent(Changenumber.this, Makeintcall.class);
+                    startActivity(intent);
+                }
             }
         });
         RadioButton it= findViewById(R.id.it);
@@ -81,6 +85,11 @@ public class Changenumber extends AppCompatActivity {
                 Public.prefix = "+34 ";
                 Public.preflag = 4;
             }
+        });
+        Button select = findViewById(R.id.select);
+        select.setOnClickListener(v -> {
+            Intent intent = new Intent(Changenumber.this, Makeintcall.class);
+            startActivity(intent);
         });
 
     }
