@@ -51,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button makeintcallButton = findViewById(R.id.makeintcallbutton);
+        makeintcallButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Public.back_flag = 0;
+                Intent intent = new Intent(MainActivity.this, Makeintcall.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

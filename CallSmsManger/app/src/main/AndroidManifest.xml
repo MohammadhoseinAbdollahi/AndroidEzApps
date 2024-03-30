@@ -20,6 +20,9 @@
         android:theme="@style/Theme.CallSmsManger"
         tools:targetApi="31">
         <activity
+            android:name=".Emergancynumber"
+            android:exported="false" />
+        <activity
             android:name=".Makeintcall"
             android:exported="false" />
         <activity
