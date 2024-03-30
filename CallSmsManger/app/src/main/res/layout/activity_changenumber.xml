@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C5F8D6"
+    tools:context=".Changenumber">
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:backgroundTint="#000000"
+        android:text="Back"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:buttonTint="@color/black">
+
+
+        <RadioButton
+            android:id="@+id/it"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+39 (IT)"
+            android:buttonTint="@color/black"/>
+
+        <RadioButton
+            android:id="@+id/ir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+98 (IR)"
+            android:buttonTint="@color/black"/>
+
+
+        <RadioButton
+            android:id="@+id/us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+1 (US)"
+            android:buttonTint="@color/black"/>
+
+
+        <RadioButton
+            android:id="@+id/es"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+34 (ES)"
+            android:buttonTint="@color/black"/>
+
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>
