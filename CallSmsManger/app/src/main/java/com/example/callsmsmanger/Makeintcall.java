@@ -25,6 +25,7 @@ public class Makeintcall extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_makeintcall);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -32,11 +33,11 @@ public class Makeintcall extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         number = findViewById(R.id.emrgnumber);
         prefixnumb = findViewById(R.id.prefixnumber);
-        number.setText(Public.emrgnumb);
-        prefixnumb.setText(Public.prefix);
-
+//        number.setText(Public.emrgnumb);
+//        prefixnumb.setText(Public.prefix);
         Button backbutton = findViewById(R.id.back);
         backbutton.setOnClickListener(v -> {
             if(Public.back_flag == 0) {
@@ -82,7 +83,7 @@ public class Makeintcall extends AppCompatActivity {
             public void onClick(View v) {
                 Public.back_flag = 3;
                 Intent intent = new Intent(Makeintcall.this, Changenumber.class);
-                startActivity(intent);
+                startActivityForResult(intent, CHOOSE_PREFIX_NUMB);
             }
         });
         Button emrgbutton = findViewById(R.id.emrgbutton);
@@ -91,10 +92,13 @@ public class Makeintcall extends AppCompatActivity {
             public void onClick(View v) {
                 Public.back_flag = 3;
                 Intent intent = new Intent(Makeintcall.this, Emergancynumber.class);
-                startActivity(intent);
+                startActivityForResult(intent, CHOOSE_EMRG_NUMB);
+
             }
         });
     }
+
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -115,7 +119,25 @@ public class Makeintcall extends AppCompatActivity {
         intent.setData(Uri.parse("tel:" + phoneNumber));
         startActivity(intent);
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CHOOSE_EMRG_NUMB) { // Identify activity
+            if (resultCode == RESULT_OK) { // Activity succeeded
+                String reply = data.getStringExtra(Emergancynumber.EXTRA_REPLY_EMRG);
+                number.setText(reply);
+            }}
+        if (requestCode == CHOOSE_PREFIX_NUMB) { // Identify activity
+            if (resultCode == RESULT_OK) { // Activity succeeded
+                String reply = data.getStringExtra(Changenumber.EXTRA_REPLY);
+                prefixnumb.setText(reply);
+            }}
+    }
+
     private static final int REQUEST_CALL_PERMISSION = 1;
 
+    public static final int CHOOSE_EMRG_NUMB = 2;
+    public static final int CHOOSE_PREFIX_NUMB = 3;
 }
 

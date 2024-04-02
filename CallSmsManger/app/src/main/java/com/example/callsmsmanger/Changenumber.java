@@ -30,6 +30,7 @@ public class Changenumber extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(Public.back_flag == 0) {
+
                     Intent intent = new Intent(Changenumber.this, MainActivity.class);
                     startActivity(intent);
                 }
@@ -42,6 +43,7 @@ public class Changenumber extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if(Public.back_flag == 3) {
+                    Public.back_flag = 0;
                     Intent intent = new Intent(Changenumber.this, Makeintcall.class);
                     startActivity(intent);
                 }
@@ -90,7 +92,10 @@ public class Changenumber extends AppCompatActivity {
         Button select = findViewById(R.id.select);
         select.setOnClickListener(v -> {
             Intent intent = new Intent(Changenumber.this, Makeintcall.class);
-            startActivity(intent);
+            intent.putExtra(Changenumber.EXTRA_REPLY,Public.prefix);
+            setResult(RESULT_OK, intent);
+            finish();
+            //startActivity(intent);
         });
         Button info = findViewById(R.id.info);
         info.setOnClickListener(v -> {
@@ -101,4 +106,6 @@ public class Changenumber extends AppCompatActivity {
 
 
     }
+    public final static String EXTRA_REPLY = "com.example.myapp.RETURN_MESSAGE";
+
 }

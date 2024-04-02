@@ -12,6 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+
 public class Emergancynumber extends AppCompatActivity {
 
     @Override
@@ -27,7 +28,7 @@ public class Emergancynumber extends AppCompatActivity {
         RadioGroup emerga = findViewById(R.id.emrg);
         emerga.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.police) {
-                Public.emrgnumb = "112";
+                Public.emrgnumb = "113";
             }
             if (checkedId == R.id.ambulance) {
                 Public.emrgnumb = "118";
@@ -39,10 +40,25 @@ public class Emergancynumber extends AppCompatActivity {
                 Public.emrgnumb = "112";
             }
         });
+        if (Public.emrgnumb.equals("113")) {
+            emerga.check(R.id.police);
+        }
+        if (Public.emrgnumb.equals("118")) {
+            emerga.check(R.id.ambulance);
+        }
+        if (Public.emrgnumb.equals("115")) {
+            emerga.check(R.id.firebrigade);
+        }
+        if (Public.emrgnumb.equals("112")) {
+            emerga.check(R.id.emerg);
+        }
 
         Button select = findViewById(R.id.select);
         select. setOnClickListener(v -> {
             Intent intent = new Intent(Emergancynumber.this, Makeintcall.class);
+            intent.putExtra(Emergancynumber.EXTRA_REPLY_EMRG, Public.emrgnumb);
+            setResult(RESULT_OK, intent);
+            finish();
             startActivity(intent);
         });
         Button backbutton = findViewById(R.id.back);
@@ -62,11 +78,17 @@ public class Emergancynumber extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if(Public.back_flag == 3) {
+                    Public.back_flag = 0;
                     Intent intent = new Intent(Emergancynumber.this, Makeintcall.class);
+                    intent.putExtra(Emergancynumber.EXTRA_REPLY_EMRG, Public.emrgnumb);
+                    setResult(RESULT_OK, intent);
+                    finish();
                     startActivity(intent);
                 }
             }
         });
         
     }
+
+    public final static String EXTRA_REPLY_EMRG = "com.example.myapp.RETURN_MESSAGE";
 }

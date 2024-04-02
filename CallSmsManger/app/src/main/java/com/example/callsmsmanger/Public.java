@@ -6,4 +6,5 @@ public class Public {
         public static int preflag =1;
 
         public static String emrgnumb ="";
+        public static int emrg_flag =0;
 }
