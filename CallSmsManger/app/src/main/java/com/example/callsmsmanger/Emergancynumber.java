@@ -26,6 +26,7 @@ public class Emergancynumber extends AppCompatActivity {
             return insets;
         });
         RadioGroup emerga = findViewById(R.id.emrg);
+        emerga.check(R.id.police);
         emerga.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.police) {
                 Public.emrgnumb = "113";
@@ -59,7 +60,7 @@ public class Emergancynumber extends AppCompatActivity {
             intent.putExtra(Emergancynumber.EXTRA_REPLY_EMRG, Public.emrgnumb);
             setResult(RESULT_OK, intent);
             finish();
-            startActivity(intent);
+            //startActivity(intent);
         });
         Button backbutton = findViewById(R.id.back);
         backbutton.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +84,7 @@ public class Emergancynumber extends AppCompatActivity {
                     intent.putExtra(Emergancynumber.EXTRA_REPLY_EMRG, Public.emrgnumb);
                     setResult(RESULT_OK, intent);
                     finish();
-                    startActivity(intent);
+                    //startActivity(intent);
                 }
             }
         });

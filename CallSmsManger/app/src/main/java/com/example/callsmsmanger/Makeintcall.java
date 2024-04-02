@@ -114,9 +114,17 @@ public class Makeintcall extends AppCompatActivity {
 
     private void makePhoneCall() {
         TextView number = findViewById(R.id.Number);
+        TextView prefixn= findViewById(R.id.prefix);
         String phoneNumber = number.getText().toString();
+        String prefix = prefixnumb.getText().toString();
+
+        if (phoneNumber.isEmpty() || prefix.isEmpty()) {
+            Toast.makeText(this, "Number or prefix cannot be empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Intent intent = new Intent(Intent.ACTION_CALL);
-        intent.setData(Uri.parse("tel:" + phoneNumber));
+        intent.setData(Uri.parse("tel:" + prefixn + phoneNumber));
         startActivity(intent);
     }
     @Override
