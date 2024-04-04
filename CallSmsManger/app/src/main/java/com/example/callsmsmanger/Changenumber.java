@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -30,7 +31,6 @@ public class Changenumber extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(Public.back_flag == 0) {
-
                     Intent intent = new Intent(Changenumber.this, MainActivity.class);
                     startActivity(intent);
                 }
@@ -90,13 +90,28 @@ public class Changenumber extends AppCompatActivity {
                 Public.preflag = 4;
             }
         });
+
         Button select = findViewById(R.id.select);
         select.setOnClickListener(v -> {
-            Intent intent = new Intent(Changenumber.this, Makeintcall.class);
-            intent.putExtra(Changenumber.EXTRA_REPLY,Public.prefix);
-            setResult(RESULT_OK, intent);
-            finish();
-            //startActivity(intent);
+            if(Public.back_flag == 0) {
+                Intent intent = new Intent(Changenumber.this, MainActivity.class);
+                startActivity(intent);
+            }
+            if(Public.back_flag == 1) {
+                Intent intent = new Intent(Changenumber.this, Call.class);
+                startActivity(intent);
+            }
+            if(Public.back_flag == 2) {
+                Intent intent = new Intent(Changenumber.this, Sms.class);
+                startActivity(intent);
+            }
+            if(Public.back_flag == 3) {
+                Intent intent = new Intent(Changenumber.this, Makeintcall.class);
+                intent.putExtra(Changenumber.EXTRA_REPLY,Public.prefix);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+
         });
         Button info = findViewById(R.id.info);
         info.setOnClickListener(v -> {
@@ -104,9 +119,6 @@ public class Changenumber extends AppCompatActivity {
             intent.setData(Uri.parse("https://en.wikipedia.org/wiki/List_of_international_call_prefixes"));
             startActivity(intent);
         });
-
-
     }
     public final static String EXTRA_REPLY = "com.example.myapp.RETURN_MESSAGE";
-
 }
