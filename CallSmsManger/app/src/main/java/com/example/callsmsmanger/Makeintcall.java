@@ -73,7 +73,7 @@ public class Makeintcall extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(android.net.Uri.parse("tel:" + number.getText()));
+                intent.setData(android.net.Uri.parse("tel:" + prefixnumb.getText()+ number.getText()));
                 startActivity(intent);
             }
         });
@@ -113,18 +113,17 @@ public class Makeintcall extends AppCompatActivity {
     }
 
     private void makePhoneCall() {
-        TextView number = findViewById(R.id.Number);
-        TextView prefixn= findViewById(R.id.prefix);
-        String phoneNumber = number.getText().toString();
-        String prefix = prefixnumb.getText().toString();
-
-        if (phoneNumber.isEmpty() || prefix.isEmpty()) {
+        TextView number = findViewById(R.id.emrgnumber);
+        TextView prefixn= findViewById(R.id.prefixnumber);
+        if (number.getText().toString().isEmpty() || prefixn.getText().toString().isEmpty() ){
             Toast.makeText(this, "Number or prefix cannot be empty", Toast.LENGTH_SHORT).show();
             return;
         }
+        String phoneNumber = number.getText().toString();
+        String prefix = prefixn.getText().toString();
 
         Intent intent = new Intent(Intent.ACTION_CALL);
-        intent.setData(Uri.parse("tel:" + prefixn + phoneNumber));
+        intent.setData(Uri.parse("tel:" + prefix + phoneNumber));
         startActivity(intent);
     }
     @Override

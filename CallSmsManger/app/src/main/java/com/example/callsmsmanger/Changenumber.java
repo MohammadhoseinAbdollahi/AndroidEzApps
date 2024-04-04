@@ -43,9 +43,10 @@ public class Changenumber extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if(Public.back_flag == 3) {
-                    Public.back_flag = 0;
                     Intent intent = new Intent(Changenumber.this, Makeintcall.class);
-                    startActivity(intent);
+                    intent.putExtra(Changenumber.EXTRA_REPLY,Public.prefix);
+                    setResult(RESULT_OK, intent);
+                    finish();
                 }
             }
         });
