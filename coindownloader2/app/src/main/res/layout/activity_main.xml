@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+ <GridLayout
+     android:id="@+id/gridLayout"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:columnCount="3"
+     android:padding="70dp"
+     android:rowCount="3"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent">
+
+  <ImageView
+      android:id="@+id/imageView1"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_rowWeight="1"
+      android:layout_columnWeight="1"
+      android:adjustViewBounds="true"
+      android:scaleType="fitCenter" />
+
+  <ImageView
+      android:id="@+id/imageView2"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_rowWeight="1"
+      android:layout_columnWeight="1"
+      android:adjustViewBounds="true"
+      android:scaleType="fitCenter" />
+
+  <ImageView
+      android:id="@+id/imageView3"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_rowWeight="1"
+      android:layout_columnWeight="1"
+      android:adjustViewBounds="true"
+      android:scaleType="fitCenter" />
+
+  <ImageView
+      android:id="@+id/imageView4"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_rowWeight="1"
+      android:layout_columnWeight="1"
+      android:adjustViewBounds="true"
+      android:scaleType="fitCenter" />
+
+  <ImageView
+      android:id="@+id/imageView5"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_rowWeight="1"
+      android:layout_columnWeight="1"
+      android:adjustViewBounds="true"
+      android:scaleType="fitCenter" />
+
+  <ImageView
+      android:id="@+id/imageView6"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_rowWeight="1"
+      android:layout_columnWeight="1"
+      android:adjustViewBounds="true"
+      android:scaleType="fitCenter" />
+
+  <ImageView
+      android:id="@+id/imageView7"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_rowWeight="1"
+      android:layout_columnWeight="1"
+      android:adjustViewBounds="true"
+      android:scaleType="fitCenter" />
+
+  <ImageView
+      android:id="@+id/imageView8"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_rowWeight="1"
+      android:layout_columnWeight="1"
+      android:adjustViewBounds="true"
+      android:scaleType="fitCenter" />
+
+  <ImageView
+      android:id="@+id/imageView9"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_rowWeight="1"
+      android:layout_columnWeight="1"
+      android:adjustViewBounds="true"
+      android:scaleType="fitCenter" />
+
+ </GridLayout>
+
+ <androidx.appcompat.widget.Toolbar
+     android:id="@+id/toolbar"
+     android:layout_width="match_parent"
+     android:layout_height="?attr/actionBarSize"
+     android:background="?attr/colorPrimary"
+     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+     app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

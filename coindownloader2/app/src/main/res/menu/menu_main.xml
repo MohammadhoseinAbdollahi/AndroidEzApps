@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.coindownloader.MainActivity">
+    <item
+        android:id="@+id/resetdownloading"
+        android:orderInCategory="100"
+        android:title="@string/action_reset_downloading"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/DownloadParallel"
+        android:orderInCategory="100"
+        android:title="@string/action_download_parallel"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/Downloadserial"
+        android:orderInCategory="100"
+        android:title="@string/action_download_serial"
+        app:showAsAction="never" />
+</menu>
